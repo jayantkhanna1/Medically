@@ -1,0 +1,244 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
+    <title>Staff</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <!-- Local styling -->
+    <link rel="stylesheet" href="{%static 'css/staffpage.css'%}">
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+
+   <script rel="javascript" type="text/javascript" href="js/jquery-1.11.3.min.js"></script>
+    <style>
+        #stafflogin{
+            color: #007bff !important;
+        }
+        #stafflogin_mob{
+            color: white !important;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id="headblock_staffpage">
+        {%include 'header.html'%}
+        {%block content1%}
+        {%endblock%}
+        <div id="staffpage_mid_header">
+            <h2>{{staffdata.name}}</h2>
+            <a href="home">Home </a>/ <a href="javascript:void(0)">{{staffdata.name}}</a> / <span><a href="logoutstaff">Logout</a> </span>
+        </div>
+    </div>
+    <!--Table heading etc for databse  -->
+    <div id="mid_data">
+        <div id="heading">
+            <h2>Appointments</h2>
+        </div>
+        <div id="searchbar">
+            <input type="text" id="input-searchbar" name="searchbar" placeholder="Enter name you want to search">
+        </div>
+        <div id="add_remove_edit">
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal_bookappointment">Add Appointment</a>
+            {%if staffdata.can_delete is False%}
+            <a href="javascript:void(0)" onclick="alert('Sorry for security default users are not allowed to delete or edit database if you wanna explore these features please contact site administrators from contact us page. Thankyou')">Remove Appointment</a>
+            {%else%}
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal_removeappointment">Remove Appointment</a>
+            {%endif%}
+            
+        </div>
+        <!-- Add appointment modal -->
+        <div id="container">
+            <!-- <button id="modal_open_button" type="button" class="btn btn-info btn-lg" >Add comment</button> -->
+             <!-- Modal -->
+            <div class="modal fade" id="myModal_bookappointment" role="dialog">
+                <div class="modal-dialog">
+                
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add new Patient</h4>
+                    </div>
+                    <div class="modal-body">
+                    {% include 'appointment.html'%}
+                    {%block content2%}
+                    {%endblock%}
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+        <!-- Remove appointment modal -->
+        <div id="container">
+            <!-- <button id="modal_open_button" type="button" class="btn btn-info btn-lg" >Add comment</button> -->
+             <!-- Modal -->
+            <div class="modal fade" id="myModal_removeappointment" role="dialog">
+                <div class="modal-dialog">
+                
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Remove Patient</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="input-searchbar-remove" name="searchbar" placeholder="Enter name you want to search">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-remove">
+                                {%for x in patientdata reversed%}
+                                <tr>
+                                <td scope="row">{{x.id}}</td>
+                                <td>{{x.name}}</td>
+                                <td><a href="#" onclick="remove('{{x.id}}')" data-dismiss="modal">Remove</a></td>
+                                {%endfor%}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+        
+        <div class="table-responsive">
+            <table id="patient-list" class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Sex</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Seen by Doctor</th>
+                    <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    {%for x in patientdata reversed%}
+                    <tr>
+                    <th scope="row">{{x.id}}</th>
+                    <td>{{x.name}}</td>
+                    <td>{{x.email}}</td>
+                    <td>{{x.sex}}</td>
+                    <td>{{x.phone}}</td>
+                    <td>{{x.department}}</td>
+                    {%if x.doc_seen is True%}
+                    <td>Yes</td>
+                    {%else%}
+                    <td>No</td>
+                    {%endif%}
+                    {%if staffdata.can_delete is False%}
+                    <td><a href="javascript:void(0)" onclick="alert('Sorry for security default users are not allowed to delete or edit database if you wanna explore these features please contact site administrators from contact us page. Thankyou')"">Edit</a></td>
+                    {%else%}
+                    <td><a href="#" onclick="edit('{{x.id}}','{{x.name}}','{{x.sex}}','{{x.email}}','{{x.phone}}','{{x.department}}')" data-toggle="modal" data-target="#myModal_editappointment">Edit</a></td>
+                    {%endif%}
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+            <!-- Edit appointment modal -->
+        <div id="container">
+            <!-- <button id="modal_open_button" type="button" class="btn btn-info btn-lg" >Add comment</button> -->
+             <!-- Modal -->
+            <div class="modal fade" id="myModal_editappointment" role="dialog">
+                <div class="modal-dialog">
+                
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Data</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="editappointment" method="POST" enctype="multipart/form-data">
+                        {%csrf_token%}
+                        <input type="text" name="patientid" id="appointment_id_edit" required name="id" readonly placeholder="Patient id">
+                        <select required name="sex" id="appointment_department_edit">
+                            <option value="">Select Sex</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Transgender">Transgender</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <select required name="department" id="appointment_doctor_edit">
+                            <option value="">Select Department</option>
+                            <option value="Cardiology">Cardiology</option>
+                            <option value="Ophthalmology">Ophthalmology</option>
+                            <option value="Surgery">Surgery</option>
+                            <option value="Otolaryngologist">Otolaryngologist</option>
+                            <option value="Neurology">Neurology</option>
+                            <option value="Hematologist">Hematologist</option>
+                            <option value="Medical Lab">Medical Lab</option>
+                            <option value="Dental Care">Dental Care</option>
+                            <option value="Pediatry">Pediatry</option>
+                
+                        </select><br>
+                        <input type="text" id="appointment_name_edit" required name="name" placeholder="Enter your Name">
+                        <input type="email" id="appointment_email_edit" required name="email" placeholder="Enter your Email">
+                        <input type="number" id="appointment_number_edit" required name="number" placeholder="Enter your contact number"><br>
+                        <input type="submit" required value="Edit Appointment" id="book_appointment_submit_edit">
+                    
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div>
+        {%include 'footer.html'%}
+        {%block content3%}
+        {%endblock%}
+    </div>
+    <!-- Search function  -->
+    
+    <script src="{%static 'js/staffpage.js'%}"></script>
+    <script>
+        function remove(id)
+        {
+            $.ajax({
+                type: "POST",
+                url: 'remove',   
+                data: {csrfmiddlewaretoken: '{{ csrf_token }}',
+                    text: id},
+                success:  function(response){
+                    location.reload();}
+            });  
+        }
+    </script>
+</body>
+</html>

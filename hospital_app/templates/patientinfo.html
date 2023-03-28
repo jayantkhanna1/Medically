@@ -1,0 +1,153 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
+    <title>Patient Information</title>
+
+    <!-- Local styling -->
+    <link rel="stylesheet" href="{%static 'css/patientinfo.css'%}">
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+    <link rel="stylesheet" href="{%static 'css/staffpage.css'%}">
+
+    <!-- Font awesome -->
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #stafflogin{
+            color: #007bff !important;
+        }
+        #stafflogin_mob{
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id="headblock_patientinfo">
+        {%include 'header.html'%}
+        {%block content1%}
+        {%endblock%}
+        <div id="patientinfo_mid_header">
+            <h2>{{patientname}}</h2>
+            <a href="home">Home </a>/ <a href="javascript:void(0)">{{docname.name}}</a> / <span>{{patientname}} </span>
+        </div>
+    </div>
+    <div id="searchbar_div">
+        <input type="search" name="searchbar" id="searchbar" placeholder="Enter date to show up record">
+    </div>
+    <div id="patient_history">
+        <div id="dates">
+            {%for x in patientinfo reversed%}
+            <a href="javascript:void(0)" class="dates_a" id="{{x.id}}" onclick="change_view('{{x.id}}')">{{x.date_time}}</a>
+            {%endfor%}
+        </div>
+        <div id="details">
+            {%for x in patientinfo reversed%}
+            <div class="details-show" id="main-{{x.id}}">
+                <div id="name-id">
+                    <div><span>Appointment id:</span>{{x.id}}</div>
+                    <div><span>Patient name:</span>{{x.name}}</div>
+                </div>
+                <div id="sex-department">
+                    <div><span>Patient gender:</span>{{x.sex}}</div>
+                    <div><span>Department:</span>{{x.department}}</div>
+                </div>
+                <div id="contact">
+                    <div><span>Patient Email:</span>{{x.email}}</div>
+                    <div><span>Patient Phone:</span>{{x.phone}}</div>
+                </div>
+                <div id="ailment">
+                    <span>Ailment:</span>{{x.ailment}}
+                </div>
+                <div id="prescription">
+                    <span>Prescibed:</span>{{x.prescription}}
+                </div>
+                {% if docname.can_delete is False%}
+                <div id="edit"><a href="javascript:void(0)" onclick="alert('Sorry for security default users are not allowed to delete or edit database if you wanna explore these features please contact site administrators from contact us page. Thankyou')">Edit</a></div>
+                {% else %}
+                <div id="edit"><a href="#" onclick="edit('{{x.id}}','{{x.name}}','{{x.sex}}','{{x.email}}','{{x.phone}}','{{x.department}}','{{x.doc_seen}}')" data-toggle="modal" data-target="#myModal_editappointment">Edit</a></div>
+                {% endif %}
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+    <!-- Edit appointment modal -->
+    <div id="container">
+        <!-- <button id="modal_open_button" type="button" class="btn btn-info btn-lg" >Add comment</button> -->
+         <!-- Modal -->
+        <div class="modal fade" id="myModal_editappointment" role="dialog">
+            <div class="modal-dialog">
+            
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit Details</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="editappointment_doc" method="POST" enctype="multipart/form-data">
+                    {%csrf_token%}
+                    <input type="text" name="patientid" id="appointment_id_edit" required name="id" readonly placeholder="Patient id">
+                    <select required name="sex" id="appointment_department_edit">
+                        <option value="">Select Sex</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Transgender">Transgender</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <select required name="department" id="appointment_doctor_edit">
+                        <option value="">Select Department</option>
+                        <option value="Cardiology">Cardiology</option>
+                        <option value="Ophthalmology">Ophthalmology</option>
+                        <option value="Surgery">Surgery</option>
+                        <option value="Otolaryngologist">Otolaryngologist</option>
+                        <option value="Neurology">Neurology</option>
+                        <option value="Hematologist">Hematologist</option>
+                        <option value="Medical Lab">Medical Lab</option>
+                        <option value="Dental Care">Dental Care</option>
+                        <option value="Pediatry">Pediatry</option>
+            
+                    </select><br>
+                    <input type="text" id="appointment_name_edit" required name="name" placeholder="Enter your Name">
+                    <input type="email" id="appointment_email_edit" required name="email" placeholder="Enter your Email">
+                    <input type="number" id="appointment_number_edit" required name="number" placeholder="Enter your contact number">
+                    <input type="text" id="appointment_ailment_edit" required name="ailment" placeholder="Enter patients Ailment (max 1000 words)">
+                    <input type="text" id="appointment_prescription_edit" required name="prescription" placeholder="Enter patients Prescription(max 1000 words)">
+                    <label id="docseen_label" for="docseen">Have you seen this patient</label>&nbsp;
+                    <input type="checkbox" name="docseen" id="docseen">
+                    <input type="submit" required value="Edit Appointment" id="book_appointment_submit_edit">
+                
+                    </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script src="{%static 'js/patientinfo.js'%}"></script>
+    <!-- Footer -->
+    <div>
+        {%include 'footer.html'%}
+        {%block content3%}
+        {%endblock%}
+    </div>
+</body>
+</html>

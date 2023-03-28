@@ -1,0 +1,160 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>About us</title>
+    <!-- Local styling -->
+    <link rel="stylesheet" href="{%static 'css/aboutus.css'%}">
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+    <!-- Font Awesome -->
+    <!-- <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css"> -->
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <style>
+    #aboutus{
+        color: #007bff !important;
+    }
+    #aboutus_mob{
+        color: white !important;
+    }
+</style>
+</head>
+<body>
+    <div id="headblock_aboutus">
+        {%include 'header.html'%}
+        {%block content1%}
+        {%endblock%}
+        <div id="aboutus_mid_header">
+            <h2>About us</h2>
+            <a href="home">Home </a>/ <span> About us</span>
+        </div>
+    </div>
+    <div id="medically_history">
+        <div id="left_history">
+            <h2>Medically History</h2>
+            <p>Hello, my name is Jayant Khanna, I am a Full stack Django web developer. This website is just a dummy website made as a personal project if you like my work 
+                connect with me here: <a href="https://github.com/jayantkhanna1" target="_blank">github</a>. Now i will be adding some random text Thankyou for visiting my website 
+                Have a Good Day :D
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, necessitatibus nisi tempore omnis assumenda commodi nam architecto et doloribus quaerat tenetur neque, illo molestiae rem!
+            </p>
+            <div id="history_read_more">
+                Read more
+            </div>
+        </div>
+        <div id="right_history">
+            <img src="{%static 'images_used/doctor_group.jpg'%}" alt="">
+        </div>
+    </div>
+    <div id="mid-bootstrap">
+        <h2>Faq & Details</h2>
+        <div id="mid-bootstrap-flex">
+            <div id="bootstrap">
+                <div class="panel-group" id="accordion">
+                    <div id="accordian-one" class="panel panel-default">
+                      <div id="accordian-heading-one" class="panel-heading"data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                        <h4 class="panel-title">
+                          <a >
+                          Collapsible Group 1</a>
+                        </h4>
+                      </div>
+                      <div id="collapse1" class="panel-collapse collapse in">
+                        <div id="accordian-one-text"  class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.</div>
+                      </div>
+                    </div>
+                    <div id="accordian-two" class="panel panel-default">
+                      <div id="accordian-heading-two" data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="panel-heading">
+                        <h4 class="panel-title">
+                          <a >
+                          Collapsible Group 2</a>
+                        </h4>
+                      </div>
+                      <div id="collapse2" class="panel-collapse collapse">
+                        <div id="accordian-two-text" class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.</div>
+                      </div>
+                    </div>
+                    <div id="accordian-three" class="panel panel-default">
+                      <div id="accordian-heading-three" class="panel-heading"data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                        <h4 class="panel-title">
+                          <a>
+                          Collapsible Group 3</a>
+                        </h4>
+                      </div>
+                      <div  id="collapse3" class="panel-collapse collapse">
+                        <div id="accordian-three-text" class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.</div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div id="mid-professional">
+                <fieldset>
+                    <legend>Professional</legend>
+                    <div id="mid-professional-text">
+                        <i class="fas fa-head-side-mask" id="mid-professional-svg" ></i>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ullam repellat explicabo. Quidem.</p>
+                    </div>
+                </fieldset>
+            </div>
+            <div id="mid-quality">
+                <fieldset>
+                    <legend>Quality</legend>
+                    <div id="mid-quality-text">
+                        <i class="fas fa-user-tie" id="mid-quality-svg"></i>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ullam repellat explicabo. Quidem.</p>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <div id="expert_team">
+        <h2>Our Experts Team</h2>
+        <div id="Experts_details">
+            <div class="expert" id="expert1">
+                <img src="{%static 'images_used/expert1.png'%}" alt="Image">
+                <h5>Olivia Taylor</h5>
+                <p>Phd. Surgeon</p>
+            </div>
+            <div class="expert" id="expert2">
+                <img src="{%static 'images_used/expert2.png'%}" alt="Image">
+                <h5>John Smith</h5>
+                <p>Cardiovascular Technician</p>
+            </div>
+            <div class="expert" id="expert3">
+                <img src="{%static 'images_used/expert3.png'%}" alt="Image">
+                <h5>Robert Downey Jr.</h5>
+                <p>Phd. Epidemiologist</p>
+            </div>
+            <div class="expert" id="expert4">
+                <img src="{%static 'images_used/expert4.png'%}" alt="Image">
+                <h5>Emma Brown</h5>
+                <p>Phd. Pediatrician</p>
+            </div>
+        </div>
+    </div>
+        
+    <div>
+    {%include 'footer.html'%}
+    {%block content3%}
+    {%endblock%}
+    </div>
+</body>
+</html>

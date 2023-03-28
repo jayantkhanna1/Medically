@@ -1,0 +1,41 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>Default</title>
+    <!-- Local styling -->
+    <link rel="stylesheet" href="{%static 'css/default.css'%}">
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+</head>
+<body>
+    <div id="headblock_default">
+        {%include 'header.html'%}
+        {%block content1%}
+        {%endblock%}
+        <div id="default_mid_header">
+            <h2>Default</h2>
+            <a href="home">Home </a>/ <span> Default</span>
+        </div>
+    </div>
+    <div id="information">
+        <p>Hello, as this website was coded as a personal project not all pages were coded to save time. 
+            However you can still checkout following pages <a href="home">Home</a>, <a href="aboutus">About us</a>, <a href="login">Login</a> & <a href="contactus">contactus</a>
+            If you like my work you can connect with me on my <a href="https://github.com/jayantkhanna1" target="_blanc">Github </a> or <a href="https://www.linkedin.com/in/jayant-khanna-66a274185/" target="_blanc">Linkedln</a>, 
+            I am also a freelancer so connect with me if you have any work i could do.
+            If you havent logged in yet you have just seen my frontend work with a little bit of backend in Contact us page or add comment section
+            To login press on staff login in header or footer you will be guided with id and password, However to maintain security certain features have been locked
+            if you are interested in seeing them contact me on <a href="mailto:jayantkhanna3105@gmail.com" target="_blanc">My mail</a> or call me on my <a href="tel:+918755429982" target="_blanc">Phone</a>
+        </p>
+    </div>
+    <div>
+        {%include 'footer.html'%}
+        {%block content3%}
+        {%endblock%}
+    </div>
+</body>
+</html>

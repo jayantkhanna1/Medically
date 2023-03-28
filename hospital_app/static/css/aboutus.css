@@ -1,0 +1,322 @@
+/*  styling for aboutus headblock i.e. adding background images etc */
+#headblock_aboutus{
+    height: 450px;
+    background-repeat: no-repeat;
+    background-position:right;
+    background-size: contain;
+    padding-left: 80px;
+    padding-right: 80px;
+    background-image: url("../images_used/aboutus_header.webp"); 
+    background-color: #f0f4f8; 
+}
+/* About us heading and path styling */
+#aboutus_mid_header{
+    margin-top: 110px;
+    margin-left: 5%;
+}
+/* 'About us heading in background image styling' */
+#aboutus_mid_header h2{
+    font-size: 60px;
+    font-weight: 500;
+    color: rgb(64 61 64);
+    font-family: 'Raleway', sans-serif;
+}
+/* Path back to home  */
+#aboutus_mid_header a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(130 128 130);
+    font-family: 'Raleway', sans-serif;
+}
+/* Styling for 'About us in path' */
+#aboutus_mid_header span{
+    color:rgb(24, 163, 235);
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+}
+/* Medically histroy styling */
+#medically_history{
+    display: flex;
+    margin-top:110px ;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+#left_history {
+    margin-left: 10%;
+    font-weight: 500;
+   
+    font-family: 'Raleway', sans-serif;
+    line-height: 2em;
+}
+#left_history h2{
+    font-size: 60px;
+    padding-bottom: 50px; 
+    font-weight: 500;
+    color:rgb(64 61 64);
+}
+#left_history p{
+    font-size: 20px;
+    color: rgb(130, 130, 130);
+}
+#left_history p>a{
+    color: rgb(24, 163, 235);
+    text-decoration: none;
+}
+#history_read_more{
+    text-align: center;
+    width: 50%;
+    margin-top: 50px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background-image: linear-gradient(270deg, rgb(50, 200, 250) 0%, rgb(88, 125, 228) 100%);
+    padding: 12px 0 12px;
+    border-radius: 30px;
+    font-size: 20px;
+    margin-left: -0.55%;
+}
+/* Styling for expert */
+#expert_team{
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 110px;
+    margin-bottom: 0;
+}
+#expert_team h2{
+    font-size: 60px;
+    font-weight: 500;
+    color: rgb(64 61 64);
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 70px;
+}
+#Experts_details{
+    display:flex;
+    justify-content: space-between;
+}
+.expert img{
+    width:90%;
+    height: 250px;
+    background-color: #eef2f6;
+    border-radius: 20px;
+    margin-right: 50px;
+    margin-bottom: 30px;
+}
+.expert h5{
+    text-align: center;
+    font-size: 25px;
+    color: #454040;
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 20px;
+}
+.expert p{
+    text-align: center;
+    font-size: 15px;
+    color: #998282;
+    font-family: 'Raleway', sans-serif;
+}
+/* styling for accordian image etc in mid page */
+#mid-bootstrap{
+    background-image:url("../images_used/aboutus_mid.webp") ;
+    background-size: cover;
+    height: 600px;
+    background-repeat:no-repeat ;
+    padding-top: 60px;
+    padding-left: 10%;
+    padding-right: 12%;
+}
+#bootstrap{
+    padding-right: 60px;
+}
+#mid-bootstrap h2{
+    color: white;
+    font-size:48px;
+    font-weight: 500;
+    margin-bottom: 60px;
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.2em;
+}
+#mid-bootstrap-flex{
+    display: flex;
+    justify-content: space-evenly;
+}
+#accordian-heading-one,#accordian-heading-two,#accordian-heading-three{
+    background-image: linear-gradient(270deg, rgba(50,200,250,1) 0%, rgba(88,125,228,1) 100%);;
+    color: white;
+    text-decoration: none;
+    min-width:440px;
+    cursor: pointer;
+    padding:15px 10px 15px;
+}
+#accordian-heading-one h4,#accordian-heading-two h4,#accordian-heading-three h4{
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+}
+#accordian-one,#accordian-two,#accordian-three{
+    margin-bottom: 16px;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    border: none;
+}
+#mid-professional {
+    margin-right: 40px;
+}
+#mid-professional fieldset,#mid-quality fieldset{
+    border: 2px solid white;
+    border-radius: 25px;
+}
+#mid-professional fieldset>legend,#mid-quality fieldset>legend{
+    margin-left: -1%;
+    background-color: white;
+    width: 75%;
+    padding: 10px;
+    font-size: 25px;
+    font-weight: 550;
+    font-family: 'Raleway', sans-serif;
+}
+#mid-quality fieldset>legend{
+    width: 50%;
+}
+#mid-professional-text,#mid-quality-text{
+    width: 250px;
+    height: 200px;
+}
+#mid-professional-text p,#mid-quality-text p{
+    text-align: center;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#mid-professional-svg,#mid-quality-svg{
+    color: white;
+    padding:7px 0 25px;
+    height: 70px;
+    width: 70px;
+    margin-left: 40%;
+}
+@media screen and (max-width: 500px) {
+    /*  styling for aboutus headblock i.e. adding background images etc */
+    #headblock_aboutus{
+        height: 300px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size: cover;
+        margin-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+        background-image: url("../images_used/homepage_header.webp");  
+    }
+    /* About us heading and path styling */
+    #aboutus_mid_header{
+        margin-top: 45px;
+        margin-left: 5%;
+    }
+    /* 'About us heading in background image styling' */
+    #aboutus_mid_header h2{
+        font-size: 45px;
+    }
+    /* Medically histroy styling */
+    #medically_history{
+        flex-direction: column;
+        margin-bottom: 0px;
+    }
+    #medically_history img{
+        width: 100%;
+    }
+    #left_history {
+        margin-left: 7%;
+        margin-right: 7%;  
+    }
+    #left_history h2{
+        line-height: 1.8em;       
+        font-size: 40px;        
+        padding-bottom: 20px; 
+    }
+    #history_read_more{
+        text-align: center;
+        width: 100%;
+        margin-top: 50px;
+        cursor: pointer;
+        color: rgb(255, 255, 255);
+        background-image: linear-gradient(270deg, rgb(50, 200, 250) 0%, rgb(88, 125, 228) 100%);
+        padding:12px 0 12px 0 ;
+        border-radius: 30px;
+        font-size: 20px;
+        margin-left: 0%;
+        margin-bottom: 30px;
+    }
+    
+    /* styling for accordian image etc in mid page */
+    #mid-bootstrap{
+        height: auto;
+        padding-top: 60px;
+        padding-left: 12%;
+        padding-right: 12%;
+        padding-bottom: 60px;
+    }
+    #mid-quality,#mid-professional{
+        width: 100%;
+    }
+    #bootstrap{
+        padding-right: 0;
+    }
+    #mid-bootstrap h2{
+        font-size:40px;
+        text-align: center;
+    }
+    #mid-bootstrap-flex{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    #accordian-heading-one,#accordian-heading-two,#accordian-heading-three{
+        min-width:300px;
+    }
+    #mid-professional {
+        margin-bottom: 40px;
+        margin-right: 0;
+    }
+    /*  styling for experts */
+    #Experts_details{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #expert_team{
+        margin-right: 0;
+        margin-left: 0;
+        margin-top: 110px;
+        margin-bottom: 0;
+    }
+    .expert img{
+        width:100%;
+        height: 250px;
+        background-color: #eef2f6;
+        border-radius: 20px;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    #expert_team h2{
+        text-align: center;
+        font-size: 35px;
+        font-weight: 500;
+        color: rgb(64 61 64);
+        font-family: 'Raleway', sans-serif;
+        margin-bottom: 50px;
+    }
+    .expert p{
+        text-align: center;
+        font-size: 15px;
+        color: #998282;
+        font-family: 'Raleway', sans-serif;
+        margin-bottom: 30px;
+    }
+}

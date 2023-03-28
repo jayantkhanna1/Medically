@@ -1,0 +1,324 @@
+/*  styling for aboutus headblock i.e. adding background images etc */
+#headblock_login{
+    height: 450px;
+    background-repeat: no-repeat;
+    background-position:right;
+    background-size: contain;
+    padding-left: 80px;
+    padding-right: 80px;
+    background-image: url("../images_used/login.webp"); 
+    background-color: #f0f4f8; 
+}
+
+/* About us heading and path styling */
+#login_mid_header{
+    margin-top: 110px;
+    margin-left: 4%;
+}
+/* 'About us heading in background image styling' */
+#login_mid_header h2{
+    font-size: 60px;
+    font-weight: 500;
+    color: rgb(64 61 64);
+    font-family: 'Raleway', sans-serif;
+}
+/* Path back to home  */
+#login_mid_header a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(130 128 130);
+    font-family: 'Raleway', sans-serif;
+}
+/* Styling for 'About us in path' */
+#login_mid_header span{
+    color:rgb(24, 163, 235);
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+}
+/* information styling */
+#info_login{
+    margin-top: 80px;
+    margin-bottom: 110px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#info_login h2{
+    font-size: 40px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    line-height: 2em;
+    padding-bottom: 40px;
+    text-align: center;
+}
+#doc-staff{
+    display: flex;
+    justify-content: space-between;
+}
+#doc-staff div{
+    max-width: 50%;
+}
+#doc,#staff{
+    font-size: 20px;
+    line-height: 1.8em;
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.8em;
+    color: #828282;
+}
+#doc span,#staff span{
+    color: rgb(24, 163, 235);
+}
+#doc p,#staff p{
+    padding-bottom: 25px;
+}
+#doc button,#staff button{
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    border-radius: 25px;
+    width: 40%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    outline: none;
+    color: white;
+    font-size: 20px;
+    line-height: 1.8em;
+    font-family: 'Raleway', 'sans-serif';
+    text-decoration: none;
+    background-image: linear-gradient(270deg, rgb(50, 200, 250) 0%, rgb(88, 125, 228) 100%);
+}
+/* Error styling */
+#error_message {
+    display: flex;
+    justify-content: center;
+}
+#error_message h5{
+    text-align: center;
+    background-color: rgb(255, 212, 212);
+    color: red;
+    border: red;
+    padding: 20px 10px;
+    margin: 0 10% 0 10%;
+    width: 20%;
+}
+/* Form styling */
+#login_form{
+    background-image: linear-gradient(270deg, rgb(50, 200, 250) 0%, rgb(88, 125, 228) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    margin: 40px 130px 70px 130px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+#login-doc h2,#login-staff h2{
+    font-family: 'Raleway', 'sans-serif';
+    padding-bottom: 40px;
+    font-size: 40px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+#login-doc input[type=text],#login-doc input[type=password],#login-staff input[type=text],#login-staff input[type=password]{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: white;
+    font-size: 15px;
+    line-height: 1.8em;
+    font-family: 'Raleway', 'sans-serif';
+}
+.pass{
+    position: relative;
+}
+.pass svg{
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    cursor: pointer;
+}
+#hide_pass_doc,#hide_pass_staff{
+    display: none;
+}
+#login-doc input[type=text]:focus,#login-doc input[type=password]:focus,#login-staff input[type=text]:focus,#login-staff input[type=password]:focus{
+    border-bottom-color: rgb(43, 195, 255);
+    transition: 0.4s;
+}
+#login-doc input[type=text]::placeholder,#login-staff input[type=text]::placeholder,#login-doc input[type=password]::placeholder,#login-staff input[type=password]::placeholder{
+    color: black;
+    font-size: 15px;
+    line-height: 1.8em;
+    font-family: 'Raleway', 'sans-serif';
+}
+#login-doc input[type=submit],#login-staff input[type=submit]{
+    margin-left: 5%;
+    cursor: pointer;
+    border: none;
+    padding: 8px 10px 8px 10px;
+    border-radius: 25px;
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    outline: none;
+    color: white;
+    font-size: 25px;
+    line-height: 1.8em;
+    font-family: 'Raleway', 'sans-serif';
+    text-decoration: none;
+    background-color: rgb(43, 195, 255);
+    margin-bottom: 15px;
+}
+#login-doc a,#login-staff a{
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    line-height: 1.8em;
+    font-family: 'Raleway', 'sans-serif';
+
+}
+#login-staff{
+    display: none;
+}
+/* styling for tabs just above footer */
+
+#tabs{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.link-tab-class{
+    outline: none;
+    color: #404040;
+    text-decoration: none;
+    background-color: #eaf1f3;
+    font-size: 18px;
+    line-height: 1.8em;
+    font-family: 'Raleway', 'sans-serif';
+    margin-right: 10px;
+    padding: 12px 40px 12px 40px;
+}
+#link-tab-1{
+    color: white;
+    background-image: linear-gradient(270deg, rgb(50, 200, 250) 0%, rgb(88, 125, 228) 100%);
+}
+.tab-info-class{
+    display: flex;
+    margin-top: 70px;
+}
+.tab-info-class img{
+    width: 400px;
+    height: 270px;
+    margin-right: 40px;
+}
+.data-tab h4{
+    font-size: 28px;
+    font-family: 'Raleway', 'sans-serif';
+    line-height: 1.8em;
+    margin-bottom: 20px;
+}
+.data-tab p{
+    font-size: 18px;
+    line-height: 2;
+    color: #929191;
+}
+#tab-info-5,#tab-info-4,#tab-info-3,#tab-info-2{
+    display: none;
+}
+#forgot_passid{
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    font-family: 'Raleway', 'sans-serif';
+    line-height: 1.8em;
+    color: black;
+}
+@media screen and (max-width: 500px) {
+    /*  styling for login headblock i.e. adding background images etc */
+    #headblock_login{
+        height: 300px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position:left;
+        background-size: cover;
+        margin-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /*Login heading and path styling */
+    #login_mid_header{
+        margin-top: 45px;
+        margin-left: 5%;
+    }
+    /* 'login heading in background image styling' */
+    #login_mid_header h2{
+        font-size: 45px;
+    }
+    /* Styling for information */
+    #doc-staff{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    #doc-staff div{
+        max-width: 100%;
+    }
+    #doc button,#staff button{
+        margin-bottom: 25px;
+    }
+    #doc p,#staff p{
+        padding-bottom: 5px;
+    }
+    #info_login{
+        margin-bottom: 60px;
+    }
+    /* Form styling */
+    #login_form{
+        background-image: linear-gradient(270deg, rgb(50, 200, 250) 0%, rgb(88, 125, 228) 100%);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+        margin: 0 20px 0 20px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    #login-doc h2,#login-staff h2{
+        text-align: center;
+        font-size: 30px;
+    }
+    /* Styling for part below login */
+    .tab-info-class{
+        display: flex;
+        flex-direction: column;
+        margin-top: 70px;
+    }
+    .tab-info-class img{
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    #tab-links{
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 40px;
+    }
+    .link-tab-class{
+        margin-bottom: 15px;
+    }
+}

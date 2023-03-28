@@ -1,0 +1,232 @@
+/*  for full page */
+*{
+    margin: 0;
+    padding: 0;
+}
+/*  for header (navigation bar) */
+#header{
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    text-decoration: none; 
+}
+/*  left side and right side content of nav bar note:left=rightside and right= left side error of thought while typing */
+#header_left,#header_right{
+    display: flex;
+    font-size: 21px;
+    font-weight: bolder;
+    font-family: 'Raleway', sans-serif;
+}
+/*  styling for left side of header=>Medically */
+#header_right{
+    flex-direction: column;
+}
+/*  styling for left side of header=>+ sign */
+#header_right a>span{
+    padding-top:20px ;
+    color: #007bff;
+    font-size: 29px;
+    text-decoration: none;
+    
+}
+/*  styling for left side of header */
+#header_right a{
+    padding:22px ;
+    font-size: 25px; 
+    text-decoration: none; 
+    color: black;
+}
+/*  styling for right side of header=>all a tags */
+#header_left a{
+    padding: 20px;
+    text-decoration: none;
+    color: rgb(100, 92, 92);
+    z-index: 1;
+}
+/*  styling for right side of header=>all a tags on hover */
+#header_left a:hover{
+    color: #007bff;
+    transition: 0.2s;
+}
+/* styling for headblock (whole nav +mif news + image) */
+#headblock_index{
+    height: 650px;
+    background-repeat: no-repeat;
+    background-position:right;
+    padding-left: 80px;
+    padding-right: 80px;
+    background-image: url("../images_used/homepage_header.webp");  
+}
+/* whole data of state of the art medical supply styling */
+#mid_header{
+    display: flex;
+}
+/* whole data of state of the art medical supply styling */
+#header_data{
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+}
+/* whole data of state of the art medical supply styling all parts together*/
+#header_data h2,#header_data p,#header_data footer{
+    padding-top: 20px;
+    font-family:'Raleway', sans-serif ;
+}
+/* whole data of state of the art medical supply styling (heading part) */
+#header_data h2{
+    font-size: 60px;
+    color: rgb(41, 40, 40);
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+/* whole data of state of the art medical supply styling (para part) */
+#header_data p{
+    font-size: 20px;
+    color: rgb(100, 92, 92);
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+/* whole data of state of the art medical supply styling (read more part) */
+#header_data footer>a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background-image: linear-gradient(270deg, rgb(50, 200, 250) 0%, rgb(88, 125, 228) 100%);
+    padding: 12px 50px 10px;
+    border-radius: 20px;
+    font-size: 20px;
+    margin-left: -0.55%;
+}
+/* mid home page data styling */
+#mid_data{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+#mid_data_1{
+    width: 27%;
+    margin-left: -2%;
+}
+#mid_data_2{
+    width: 24%;
+    margin-left: -10%;
+}
+#mid_data_3{
+    width: 26%;
+    margin-left: -10%;
+}
+#fieldset_1_index,#fieldset_2_index,#fieldset_3_index{
+    border-radius: 25px;
+    border-color: #19a3eb;
+    font-size: 20px;
+    font-family: 'Raleway', 'sans-serif';
+    color: #818db0;
+    line-height: 1.8em;
+}
+#fieldset_2_index{
+    padding: 15px;
+    font-size: 15px ;
+}
+#fieldset_3_index{
+    padding: 15px;
+    font-size: 15px ;
+}
+#fieldset_1_index legend,#fieldset_2_index legend,#fieldset_3_index legend{
+    color: black;
+    font-size: 25px;
+}
+#emergency_contact_number{
+    color: white;
+    background-image: linear-gradient(270deg, rgb(50, 200, 250) 0%, rgb(88, 125, 228) 100%);
+    border-radius: 20px;
+    padding: 12px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+#emergency_contacts_details{
+    margin-top: 20px;
+}
+#fieldset_3_index form>select{
+    padding: 12px 10px; 
+    background-color:#f0f4f8;
+    color:#7c7c7c;
+    border-radius: 15px;
+    font-family: 'Raleway', 'sans-serif';
+    border-color: transparent;
+}
+#fieldset_3_index form>input[type=text],#fieldset_3_index form>input[type=number]{
+    margin-top: 6px;
+    width: 95%;
+    padding: 10px 10px; 
+    background-color:#f0f4f8;
+    color:#7c7c7c;
+    border-color: transparent;
+    font-family: 'Raleway', 'sans-serif';
+}
+#book_appointment_submit{
+    background-image: linear-gradient(270deg, rgb(50, 200, 250) 0%, rgb(88, 125, 228) 100%);
+    color: white;
+    width: 95%;
+    padding: 10px 10px; 
+    margin-top: 6px;
+    font-family: 'Raleway', 'sans-serif';
+    border-radius: 20px;
+    margin-left: 12px;
+    border-color: transparent;
+}
+#midsec_2{
+    background-image: url("../images_used/background_home_midsection.webp");
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+#midsec_2_layer{
+    background-image: linear-gradient(270deg, rgb(50, 200, 250) 0%, rgb(88, 125, 228) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family: 'Raleway', 'sans-serif';
+    margin: 100px 150px 100px 150px;
+}
+#midsec_2_layer h2{
+    text-align: center;
+    font-size: 50px;
+    font-weight: 200;
+    line-height: 1.8em;
+    margin: 50px;
+}
+#midsec_2_data_layer_1,#midsec_2_data_layer_2,#midsec_2_data_layer_3{
+    display: flex;
+    justify-content: space-between;
+    margin-left:5% ;
+    margin-right:60px ;
+    margin-bottom: 70px;
+}
+/* #midsec_2_data_1,#midsec_2_data_2,#midsec_2_data_3,#midsec_2_data_4,#midsec_2_data_5,#midsec_2_data_6{
+    width: 30%;
+    /* margin: 50px; */
+#midsec_2_data_layer_1 div,#midsec_2_data_layer_2 div,#midsec_2_data_layer_3 div{
+    width: 31%;
+}
+#midsec_2_data_layer_1 div>h4,#midsec_2_data_layer_2 div>h4,#midsec_2_data_layer_3 div>h4{
+    padding-bottom: 30px;
+    font-size: 25px;
+    line-height: 12px;
+    font-weight: 300;
+}
+#midsec_2_data_layer_1 div>p,#midsec_2_data_layer_2 div>p,#midsec_2_data_layer_3 div>p{
+    padding-bottom: 30px;
+    font-size: 15px;
+    line-height: 1.8rem;
+    font-weight: 100;
+}
+#midsec_2_data_layer_1 div>a,#midsec_2_data_layer_2 div>a,#midsec_2_data_layer_3 div>a{
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}

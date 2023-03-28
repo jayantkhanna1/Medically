@@ -1,0 +1,83 @@
+/*  styling for aboutus headblock i.e. adding background images etc */
+#headblock_default{
+    height: 450px;
+    background-repeat: no-repeat;
+    background-position:right;
+    background-size: contain;
+    padding-left: 80px;
+    padding-right: 80px;
+    background-image: url("../images_used/aboutus_header.webp"); 
+    background-color: #f0f4f8; 
+}
+/* About us heading and path styling */
+#default_mid_header{
+    margin-top: 110px;
+    margin-left: 5%;
+}
+/* 'About us heading in background image styling' */
+#default_mid_header h2{
+    font-size: 60px;
+    font-weight: 500;
+    color: rgb(64 61 64);
+    font-family: 'Raleway', sans-serif;
+}
+/* Path back to home  */
+#default_mid_header a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(130 128 130);
+    font-family: 'Raleway', sans-serif;
+}
+/* Styling for 'About us in path' */
+#default_mid_header span{
+    color:rgb(24, 163, 235);
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+}
+#information{
+    margin-right: 11%;
+    margin-left: 10.5%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+#information p{
+    line-height: 2em;
+    font-size: 25px;
+    color: rgb(130 128 130);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+}
+#information p>a{
+    text-decoration: none;
+    color: rgb(24, 163, 235);
+}
+@media screen and (max-width: 500px) {
+    /*  styling for aboutus headblock i.e. adding background images etc */
+    #headblock_default{
+        height: 300px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size: cover;
+        margin-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+        background-image: url("../images_used/homepage_header.webp");  
+    }
+    /* About us heading and path styling */
+    #default_mid_header{
+        margin-top: 45px;
+        margin-left: 5%;
+    }
+    /* 'About us heading in background image styling' */
+    #default_mid_header h2{
+        font-size: 45px;
+    }
+    #information{
+        margin-right: 7%;
+        margin-left: 7%;
+        margin-bottom: 0;
+    }
+}

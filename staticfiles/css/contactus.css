@@ -1,0 +1,313 @@
+/*  styling for aboutus headblock i.e. adding background images etc */
+#headblock_contactus{
+    height: 450px;
+    background-repeat: no-repeat;
+    background-position:right;
+    background-size: contain;
+    padding-left: 80px;
+    padding-right: 80px;
+    background-image: url("../images_used/contact_us.webp"); 
+    background-color: #f0f4f8; 
+}
+
+/* About us heading and path styling */
+#contactus_mid_header{
+    margin-top: 110px;
+    margin-left: 4%;
+}
+/* 'About us heading in background image styling' */
+#contactus_mid_header h2{
+    font-size: 60px;
+    font-weight: 500;
+    color: rgb(64 61 64);
+    font-family: 'Raleway', sans-serif;
+}
+/* Path back to home  */
+#contactus_mid_header a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(130 128 130);
+    font-family: 'Raleway', sans-serif;
+}
+/* Styling for 'About us in path' */
+#contactus_mid_header span{
+    color:rgb(24, 163, 235);
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+}
+/* mid home page data styling */
+#mid_data{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+/* styling for doctor timings */
+#mid_data_1{
+    width: 27%;
+    margin-left: 3%;
+    
+}
+/* styling for emergency contact */
+#mid_data_2{
+    width: 24%;
+    margin-left: -10%;
+}
+/* styling for making appointment */
+#mid_data_3{
+    width: 24%;
+    margin-left: -10%;
+    margin-right: 5%;
+}
+/* styling for fieldseyt */
+#fieldset_1_index,#fieldset_2_index,#fieldset_3_index{
+    border-radius: 25px;
+    border: 2px solid #19a3eb;
+    border-color: #19a3eb;
+    font-size: 20px;
+    font-family: 'Raleway', 'sans-serif';
+    color: #818db0;
+    line-height: 1.8em;
+}
+#fieldset_1_index{
+    width:auto; /* Or auto */
+    padding:0 10px; /* To give a bit of padding on the left and right */
+    height: 240px;
+}
+/* styling for fieldset index-2 */
+#fieldset_2_index{
+    padding: 15px;
+    font-size: 15px ;
+}
+/* styling for fieldset index-3 */
+#fieldset_3_index{
+    padding: 15px;
+    font-size: 15px ;
+}
+/* styling for all legends */
+#fieldset_1_index legend,#fieldset_2_index legend,#fieldset_3_index legend{
+    color: black;
+    font-size: 25px;
+    margin-left: -5%;
+}
+#fieldset_3_index legend{
+    margin-bottom: -1%;
+}
+/*  styling for emergency contact number */
+#emergency_contact_number{
+    color: white;
+    background-image: linear-gradient(270deg, rgb(50, 200, 250) 0%, rgb(88, 125, 228) 100%);
+    border-radius: 20px;
+    padding: 12px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+/* giving margiun */
+#emergency_contacts_details{
+    margin-top: 20px;
+}
+/* styling for making appointment form */
+#fieldset_3_index form>select{
+    font-size: 10px;
+    width: 45%;
+    padding: 8px 10px; 
+    background-color:#f0f4f8;
+    color:#7c7c7c;
+    border-radius: 15px;
+    font-family: 'Raleway', 'sans-serif';
+    border-color: transparent;
+    margin-bottom: 5px;
+    outline: none;
+    margin-top: -5%;
+}
+/*  styling for making appointment form */
+#fieldset_3_index form>input[type=text],#fieldset_3_index form>input[type=email],#fieldset_3_index form>input[type=number]{
+    font-size: 10px;
+    margin-top: 6px;
+    width: 95%;
+    padding: 7px 10px; 
+    background-color:#f0f4f8;
+    color:#7c7c7c;
+    border-color: transparent;
+    font-family: 'Raleway', 'sans-serif';
+    margin-bottom: 5px;
+    outline: none;
+}
+#fieldset_3_index form>input[type=text]::placeholder,#fieldset_3_index form>input[type=email]::placeholder,#fieldset_3_index form>input[type=number]::placeholder{
+    font-size: 10px;
+}
+/*  styling for making appointment form */
+#book_appointment_submit{
+    background-image: linear-gradient(270deg, rgb(50, 200, 250) 0%, rgb(88, 125, 228) 100%);
+    color: white;
+    width: 95%;
+    padding: 10px 10px; 
+    margin-top: 6px;
+    font-family: 'Raleway', 'sans-serif';
+    border-radius: 20px;
+    margin-left: 12px;
+    border-color: transparent;
+    cursor: pointer;
+}
+/* image styling */
+#hospital_building{
+    margin: 60px 10% 110px 10%;
+    width: 80%;
+}
+/* Contact form styling */
+#contact-form{
+    margin-top: 100px;
+    margin-left: 10%;
+}
+#contact-form h2{
+    font-family: 'Raleway', 'sans-serif';
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 50px;
+ }
+ #contact-form input{
+     padding: 10px;
+     width: 26.5%;
+     background-color: #f0f4f8;
+     outline: none;
+     border: none;
+     margin-right: 20px;
+     height: 45px;
+     margin-bottom: 50px;
+     font-size: 20px;
+ }
+ #contact-form textarea{
+     resize: none;
+     outline: none;
+     border: none;
+     background-color: #f0f4f8;
+     width: 85%;
+     padding: 20px;
+     height: 250px;
+     font-size: 20px;
+ }
+input::placeholder,textarea::placeholder{
+    font-family: 'Raleway', 'sans-serif';
+    font-size: 15px;
+    font-weight: 500;
+}
+#contact-form input[type=submit]{
+    margin-top: 40px;
+    padding:12px 0 25px 0;
+    width: 20%;
+    background-image: linear-gradient(270deg,rgba(50,200,250,1) 0%,rgba(88,125,228,1) 100%);
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 25px;
+}
+/* Mobile screen styling */
+@media screen and (max-width: 500px) {
+    /*  styling for aboutus headblock i.e. adding background images etc */
+    #headblock_contactus{
+        height: 300px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position:left;
+        background-size: cover;
+        margin-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /* About us heading and path styling */
+    #contactus_mid_header{
+        margin-top: 45px;
+        margin-left: 5%;
+    }
+    /* 'About us heading in background image styling' */
+    #contactus_mid_header h2{
+        font-size: 45px;
+    }
+    /* Styling for timings apointment etc */
+    #mid_data{
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        margin-top: 70px;
+    }
+    #fieldset_1_index{
+        font-size: 18px;
+        line-height: 2.5em;
+    }
+    /* styling for doctor timings */
+    #mid_data_1{
+        width: 90%;
+        margin-left: 0;
+        margin-bottom: 50px;
+    }
+    /* styling for emergency contact */
+    #mid_data_2{
+        width: 90%;
+        margin-left: 0;
+        margin-bottom: 50px;
+    }
+    /* styling for making appointment */
+    #mid_data_3{
+        width: 90%;
+        margin-left: 0;
+        margin-bottom: 50px;
+    }
+    #midsec_2{
+        margin-top: 50px;
+    }
+    /* image styling */
+    #hospital_building{
+        margin: 50px 5% 0px 5%;
+        width: 89%;
+        height: 300px;
+    }
+    /* Contact form styling */
+    #contact-form{
+        margin-top: 20px;
+        margin-left: 5%;
+    }
+    #contact-form h2{
+        font-family: 'Raleway', 'sans-serif';
+        font-size: 30px;
+        font-weight: 500;
+        margin-bottom: 50px;
+    }
+    #contact-form input{
+        padding: 10px;
+        width: 88%;
+        background-color: #f0f4f8;
+        outline: none;
+        border: none;
+        margin-right: 5%;
+        height: 45px;
+        margin-bottom: 30px;
+    }
+    #contact-form textarea{
+        resize: none;
+        outline: none;
+        border: none;
+        background-color: #f0f4f8;
+        width: 80%;
+        padding: 20px;
+        height: 250px;
+    }
+    input::placeholder,textarea::placeholder{
+        font-family: 'Raleway', 'sans-serif';
+        font-size: 15px;
+        font-weight: 500;
+    }
+    #contact-form input[type=submit]{
+        margin-top: 40px;
+        padding:12px 0 25px 0;
+        width: 90%;
+        background-image: linear-gradient(270deg,rgba(50,200,250,1) 0%,rgba(88,125,228,1) 100%);
+        color: white;
+        font-size: 20px;
+        font-weight: 500;
+        border-radius: 25px;
+    }
+}

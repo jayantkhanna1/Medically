@@ -1,0 +1,186 @@
+/*  styling for aboutus headblock i.e. adding background images etc */
+#headblock_docpage{
+    height: 450px;
+    background-repeat: no-repeat;
+    background-position:right;
+    background-size: contain;
+    padding-left: 80px;
+    padding-right: 80px;
+    background-image: url("../images_used/doctor_staff.webp");
+    background-color: #f0f4f8;
+}
+#doctor-staff-toggle{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+#doctor-staff-toggle a{
+    margin-right: 2%;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    border-radius: 25px;
+    width: 30%;
+    margin-bottom: 10px;
+    outline: none;
+    color: white;
+    font-size: 20px;
+    line-height: 1.8em;
+    font-family: 'Raleway', 'sans-serif';
+    text-decoration: none;
+    background-image: linear-gradient(270deg, rgb(50, 200, 250) 0%, rgb(88, 125, 228) 100%);
+
+}
+/* About us heading and path styling */
+#docpage_mid_header{
+    margin-top: 110px;
+    margin-left: 4%;
+}
+/* 'About us heading in background image styling' */
+#docpage_mid_header h2{
+    font-size: 60px;
+    font-weight: 500;
+    color: rgb(64 61 64);
+    font-family: 'Raleway', sans-serif;
+}
+/* Path back to home  */
+#docpage_mid_header a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(130 128 130);
+    font-family: 'Raleway', sans-serif;
+}
+/* Styling for 'About us in path' */
+#docpage_mid_header span>a{
+    color:rgb(24, 163, 235);
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+}
+#docseen_label{
+    font-size: 25px;
+    font-weight: 500;
+    color:rgb(24, 163, 235);
+    font-family: 'Raleway', sans-serif;
+}
+#docseen{
+    width: 20px;
+    height: 20px;
+}
+#staff_mid_data{
+    margin: 40px 10% 30px 10%;
+}
+#staff_mid_data h2{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    color: rgb(64 61 64);
+    font-family: 'Raleway', sans-serif;
+}
+#staff_mid_data input[type=search]{
+    width: 100%;
+    padding: 10px;
+    height: 50px;
+    background-color: #f0f4f8;
+    color:#3f3f3f;
+    outline: none;
+    border: transparent;
+    position: sticky;
+    top: 0;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+#add_remove{
+    display: flex;
+    justify-content: space-evenly;
+}
+#add_remove a{
+    margin-right: 2%;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    padding: 12px 1px;
+    border-radius: 25px;
+    width: 30%;
+    margin-bottom: 10px;
+    outline: none;
+    color: white;
+    font-size: 20px;
+    line-height: 1.8em;
+    font-family: 'Raleway', 'sans-serif';
+    text-decoration: none;
+    background-image: linear-gradient(270deg, rgb(50, 200, 250) 0%, rgb(88, 125, 228) 100%);
+
+}
+#add_patient_name,#add_patient_email,#add_patient_number,#add_patient_pass,#add_patient_sex,#edit_staff_id,#edit_staff_name,#edit_staff_email,#edit_staff_number,#edit_staff_sex{
+    width: 100%;
+    padding: 10px;
+    height: 50px;
+    background-color: #f0f4f8;
+    color:#3f3f3f;
+    outline: none;
+    border: transparent;
+    position: sticky;
+    top: 0;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+#add_patient_submit,#edit_staff_submit{
+    margin-left: 5%;
+    margin-right: 2%;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    padding: 12px 1px;
+    border-radius: 25px;
+    width: 90%;
+    margin-bottom: 10px;
+    outline: none;
+    color: white;
+    font-size: 20px;
+    line-height: 1.8em;
+    font-family: 'Raleway', 'sans-serif';
+    text-decoration: none;
+    background-image: linear-gradient(270deg, rgb(50, 200, 250) 0%, rgb(88, 125, 228) 100%);
+
+}
+#staff_mid_data{
+    display: none;
+}
+@media screen and (max-width: 500px) {
+    /*  styling for login headblock i.e. adding background images etc */
+    #headblock_docpage{
+        height: 300px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position:left;
+        background-size: cover;
+        margin-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /*Login heading and path styling */
+    #docpage_mid_header{
+        margin-top: 45px;
+        margin-left: 5%;
+    }
+    /* 'login heading in background image styling' */
+    #docpage_mid_header h2{
+        font-size: 45px;
+    }
+    #add_remove,#doctor-staff-toggle{
+        flex-direction: column;
+        align-items: center;
+    }
+    #add_remove a,#doctor-staff-toggle a{
+        width: 90%;
+    }
+    #docseen_label{
+        font-size: 18px;
+    }
+}

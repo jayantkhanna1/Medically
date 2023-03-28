@@ -1,0 +1,95 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>Contact Us</title>
+    <!-- Local styling -->
+    <link rel="stylesheet" href="{%static 'css/contactus.css'%}">
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+    <style>
+        #contactus{
+            color: #007bff !important;
+        }
+        #contactus_mob{
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="headblock_contactus">
+        {%include 'header.html'%}
+        {%block content1%}
+        {%endblock%}
+        <div id="contactus_mid_header">
+            <h2>Contact us</h2>
+            <a href="home">Home </a>/ <span> Contact us</span>
+        </div>
+    </div>
+    <div id="mid_data">
+        <div id="mid_data_1">
+            <fieldset id="fieldset_1_index" class="border p-2">
+                <legend class="w-auto">Doctor's timing</legend>
+                <ul style="list-style-type: none;">
+                    <div style="display: flex;justify-content:space-between ; margin-top:5px;">
+                        <li style="margin-right: 20px;">Monday-Thursday</li>
+                        <li>8:00-18:00</li>
+                    </div>
+                    <div style="display: flex;justify-content:space-between; margin-top:5px;">
+                        <li style="margin-right: 20px;">Friday</li>
+                        <li>8:00-17:30</li>
+                    </div>
+                    <div style="display: flex;justify-content:space-between; margin-top:5px;">
+                        <li style="margin-right: 20px;">Saturday</li>
+                        <li>9:00-17:00</li>
+                    </div>
+                    <div style="display: flex;justify-content:space-between; margin-top:5px;">
+                        <li style="margin-right: 20px;">Sunday</li>
+                        <li>9:30-17:00</li>
+                    </div>
+                </ul>
+            </fieldset>
+        </div>
+        <div id="mid_data_2">
+            <fieldset id="fieldset_2_index">
+                <legend>Emergency Contact</legend>
+                <a href="tel:+91 1234567890" id="emergency_contact_number">+91 1234567890</a>
+                <div id="emergency_contacts_details">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Suscipit placeat impedit nisi dolor soluta,
+                     doloribus quos voluptatum ratione
+                      
+                </div>
+            </fieldset>
+        </div>
+        <div id="mid_data_3">
+                {%include 'appointment.html'%}
+                {%block content2%}
+                {%endblock%}
+        </div>
+    </div>
+    <div id="contact-form">
+        <form action="sendmail" method="POST">
+            {%csrf_token%}
+            <h2>Get in Touch with us</h2>
+            <input type="text" placeholder="Name*" name="name" required>
+            <input type="email" placeholder="Email*" name="email" required> 
+            <input type="text" placeholder="Subject*" name="subject" required><br>
+            <textarea name="message" id="textarea" cols="30" rows="10" placeholder="Message*(your message will be sent to owner of this site)" required></textarea>
+            <input type="submit" value="Send Message">
+        </form>
+    </div>
+    <div>
+        <img src="{%static 'images_used/hospital building.jpeg'%}" id="hospital_building" alt="error in displaying image">
+    </div>
+    <div>
+        {%include 'footer.html'%}
+        {%block content3%}
+        {%endblock%}
+    </div>
+</body>
+</html>

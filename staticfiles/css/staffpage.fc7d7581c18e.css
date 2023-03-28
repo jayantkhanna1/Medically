@@ -1,0 +1,177 @@
+/*  styling for aboutus headblock i.e. adding background images etc */
+#headblock_staffpage{
+    height: 450px;
+    background-repeat: no-repeat;
+    background-position:right;
+    background-size: contain;
+    padding-left: 80px;
+    padding-right: 80px;
+    background-image: url("../images_used/doctor_staff.6bef52a36579.webp");
+    background-color: #f0f4f8;
+}
+
+/* About us heading and path styling */
+#staffpage_mid_header{
+    margin-top: 110px;
+    margin-left: 4%;
+}
+/* 'About us heading in background image styling' */
+#staffpage_mid_header h2{
+    font-size: 60px;
+    font-weight: 500;
+    color: rgb(64 61 64);
+    font-family: 'Raleway', sans-serif;
+}
+/* Path back to home  */
+#staffpage_mid_header a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(130 128 130);
+    font-family: 'Raleway', sans-serif;
+}
+/* Styling for 'About us in path' */
+#staffpage_mid_header span>a{
+    color:rgb(24, 163, 235);
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+}
+#mid_data{
+    margin-right: 10%;
+    margin-left: 10%;
+}
+#searchbar{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: sticky;
+    z-index: 100;
+    top: 0;
+}
+#searchbar input,#input-searchbar-remove,#input-searchbar-edit,#input-searchbar-remove-staff{
+    padding: 10px;
+    outline: none;
+    border: transparent;
+    height: 50px;
+    width: 100%;
+    background-color: #f0f4f8;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+    position: sticky;
+    z-index: 100;
+    top: 0;
+}
+#input-searchbar-remove,#input-searchbar-edit{
+    margin-bottom: 20px;
+}
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: #f0f4f8;
+}
+td{
+    font-size: 18px;
+}
+#add_remove_edit{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
+}
+#add_remove_edit a{
+    text-align: center;
+    text-decoration: none;
+    padding: 12px 1px;
+    border-radius: 25px;
+    line-height: 1.8em;
+    outline: none;
+    width: 30%;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+    background-image:linear-gradient(270deg, rgb(50, 200, 250) 0%, rgb(88, 125, 228) 100%);;
+}
+#heading{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+#heading h2{
+    color:#3f3f3f;
+    font-size: 40px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+}
+/* styling for modal */
+#appointment_department,#appointment_id_edit,#appointment_doctor,#appointment_name,#appointment_email,#appointment_number,#appointment_department_edit,#appointment_doctor_edit,#appointment_name_edit,#appointment_email_edit,#appointment_number_edit,#appointment_prescription_edit,#appointment_ailment_edit{
+    width: 100%;
+    height: 40px;
+    background-color: #f0f4f8;
+    outline: none;
+    border: transparent;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+    color:#3f3f3f;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+#book_appointment_submit,#book_appointment_submit_edit{
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    border-radius: 25px;
+    width: 100%;
+    margin-bottom: 10px;
+    outline: none;
+    color: white;
+    font-size: 20px;
+    line-height: 1.8em;
+    font-family: 'Raleway', 'sans-serif';
+    text-decoration: none;
+    background-image: linear-gradient(270deg, rgb(50, 200, 250) 0%, rgb(88, 125, 228) 100%);
+
+}
+@media screen and (max-width: 500px) {
+    /*  styling for login headblock i.e. adding background images etc */
+    #headblock_staffpage{
+        height: 300px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position:left;
+        background-size: cover;
+        margin-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /*Login heading and path styling */
+    #staffpage_mid_header{
+        margin-top: 45px;
+        margin-left: 5%;
+    }
+    /* 'login heading in background image styling' */
+    #staffpage_mid_header h2{
+        font-size: 45px;
+    }
+    #patient-list{
+        width: 10%!important;
+    }
+    #searchbar{
+        margin-bottom: 30px;
+    }
+    #add_remove_edit{
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+    #add_remove_edit a{
+        width: 90%;
+        margin-bottom: 20px;
+    }
+    #add_remove_edit{
+        align-items: center;
+    }
+    #docseen_label{
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,281 @@
+
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>Medically</title>
+    <!-- Local styling -->
+    <link rel="stylesheet" href="{%static 'css/index.css'%}">
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+    <!-- Font Awesome -->
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        #home{
+            color: #007bff !important;
+        }
+        #home_mob{
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="headblock_index">
+        {%include 'header.html'%}
+        {%block content1%}
+        {%endblock%}
+        
+        <div id="mid_header">
+            <div id="header_data">
+                <h2>State of the  art medical appliances </h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Perspiciatis, in molestias. Vel modi harum magni et fugiat impedit, <br> deserunt voluptatum. Obcaecati ea minus ipsa repellendus?</p>
+                <footer><a href="javascript:null(0)"> Read more</a></footer>
+            </div>
+        </div>
+    </div>
+    
+    <div id="mid_data">
+        <div id="mid_data_1">
+            <fieldset id="fieldset_1_index" class="border p-2">
+                <legend class="w-auto">Doctor's timing</legend>
+                <ul style="list-style-type: none;">
+                    <div style="display: flex;justify-content:space-between ; margin-top:5px;">
+                        <li style="margin-right: 20px;">Monday-Thursday</li>
+                        <li>8:00-18:00</li>
+                    </div>
+                    <div style="display: flex;justify-content:space-between; margin-top:5px;">
+                        <li style="margin-right: 20px;">Friday</li>
+                        <li>8:00-17:30</li>
+                    </div>
+                    <div style="display: flex;justify-content:space-between; margin-top:5px;">
+                        <li style="margin-right: 20px;">Saturday</li>
+                        <li>9:00-17:00</li>
+                    </div>
+                    <div style="display: flex;justify-content:space-between; margin-top:5px;">
+                        <li style="margin-right: 20px;">Sunday</li>
+                        <li>9:30-17:00</li>
+                    </div>
+                </ul>
+            </fieldset>
+        </div>
+        <div id="mid_data_2">
+            <fieldset id="fieldset_2_index">
+                <legend>Emergency Contact</legend>
+                <a href="tel:+91 1234567890" id="emergency_contact_number">+91 1234567890</a>
+                <div id="emergency_contacts_details">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Suscipit placeat impedit nisi dolor soluta,
+                     doloribus quos voluptatum ratione
+                      
+                </div>
+            </fieldset>
+        </div>
+        <div id="mid_data_3">
+                {%include 'appointment.html'%}
+                {%block content2%}
+                {%endblock%}
+        </div>
+    </div>
+    <div id="midsec_2">
+        <div id="midsec_2_layer">
+            <h2>Our Departments</h2>
+            <div id="midsec_2_data_layer_1">
+                <div>
+                    <h4><i class="far fa-heart" aria-hidden="true" style="color: white;"></i> &nbsp;Cardiology</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Lorem ipsum dolor sit amet consectetur.
+                    </p>
+                    <a href="#">Read more</a>
+                </div>
+                <div>
+                    <h4><i class="fas fa-eye" aria-hidden="true" style="color: white;"></i> &nbsp;Ophthalmology</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Lorem ipsum dolor sit amet consectetur.</p>
+                    <a href="#">Read more</a>
+                </div>
+                <div>
+                    <h4><i class="fas fa-cut" aria-hidden="true" style="color: white;"></i> &nbsp;Surgery</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Lorem ipsum dolor sit amet consectetur.
+                    </p>
+                    <a href="#" >Read more</a>
+                </div>
+            </div>
+            <div id="midsec_2_data_layer_2">
+                <div>
+                    <h4><i class="fas fa-deaf" aria-hidden="true" style="color: white;"></i> &nbsp;Otolaryngologist</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Lorem ipsum dolor sit amet consectetur.
+                    </p>
+                    <a href="#">Read more</a>
+                </div>
+                <div>
+                    <h4><i class="fas fa-brain" aria-hidden="true" style="color: white;"></i> &nbsp;Neurology</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Lorem ipsum dolor sit amet consectetur.</p>
+                    <a href="#">Read more</a>
+                </div>
+                <div>
+                    <h4><i class="fas fa-tint" aria-hidden="true" style="color: white;"></i> &nbsp;Hematologist</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Lorem ipsum dolor sit amet consectetur.
+                    </p>
+                    <a href="#" >Read more</a>
+                </div>
+            </div>
+            <div id="midsec_2_data_layer_3">
+                <div>
+                    <h4><i class="fas fa-vial" aria-hidden="true" style="color: white;"></i> &nbsp;Medical Lab</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Lorem ipsum dolor sit amet consectetur.
+                    </p>
+                    <a href="#">Read more</a>
+                </div>
+                <div>
+                    <h4><i class="fas fa-tooth" aria-hidden="true" style="color: white;"></i> &nbsp;Dental Care</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Lorem ipsum dolor sit amet consectetur.</p>
+                    <a href="#">Read more</a>
+                </div>
+                <div>
+                    <h4><i class="fas fa-baby" aria-hidden="true" style="color: white;"></i> &nbsp;Pediatry</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Lorem ipsum dolor sit amet consectetur.
+                    </p>
+                    <a href="#" >Read more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="testimonials">
+        <div id="testimonials_container">
+            <div id="testimonial_heading">
+                <h1>Patient’s Testimonials</h1>
+            </div>
+            <div id="testimonials_data">
+                <div id="testimonials_data_option">
+                    <img src="{%static 'images_used/double quotes.webp'%}" alt="">
+                    <div id="container">
+                        <button id="modal_open_button" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add comment</button>
+                         <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+                            
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Enter Your Details</h4>
+                                </div>
+                                <div class="modal-body">
+                                <form action="commentadd" method="POST" enctype="multipart/form-data">
+                                    {%csrf_token%}
+                                    <input required type="text" name="name" id="comment-name" placeholder="Enter your name">
+                                    <input required type="text" name="location" id="comment-location" placeholder="Enter your location">
+                                    <textarea required name="comment1" id="testimonial_new_comment" placeholder="Enter your comment" cols="30" rows="10"></textarea><br>
+                                    <label for="user_pic_comment" id="user_pic_comment_label">Upload your picture</label>
+                                    <input required type="file" id="user_pic_comment" accept="image/*" name="user_pic_comment">
+                                    <input type="submit" id="submit_comment" value="Submit">
+                                </form>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="testimonials_data_para">
+                    {%for data1 in data%}
+                    {%if data1.id is 4%}
+                    <p id="testimonials_data_para_comment"> {{data1.comment}} </p>
+                    {%endif%}
+                    {%endfor%}
+                </div>
+                <div id="testimonials_data_pictures">
+                    <div id="main_pic_testimonial">
+                        {%for data1 in data%}
+                        {%if data1.id is 4%}
+                        <img id="main_pic_testimonial_img" data-abc="4" src="{%static data1.img%}" alt="">
+                        {%endif%}
+                        {%endfor%}
+                    
+                    </div>
+                    <div id="other_pics_testimonial">
+                        {%for data1 in data%}
+                        {%if data1.id is not 4%}
+                       <a href="javascript:void(0)" onclick="change('{{data1.id}}')"><img id="other_pics_testimonial_{{data1.id}}" src="{%static data1.img%}" alt=""></a> 
+                       <p style="display: none;" id="other_names_testimonial_{{data1.id}}">{{data1.name}}</p>
+                       <p style="display: none;" id="other_location_testimonial_{{data1.id}}">{{data1.location}}</p>
+                       <p style="display: none;" id="other_comment_testimonial_{{data1.id}}">{{data1.comment}}</p>
+
+                        {%endif%}
+                        {%endfor%}    
+                    </div>
+                </div>
+                <div id="name_of_person">
+                    {%for data1 in data%}
+                    {%if data1.id is 4%}
+                    <h6 id="name_of_person_name" data-name="{{data1.name}}">{{data1.name}}</h6>
+                    <p id="name_of_person_location">{{data1.location}}</p>
+                    {%endif%}
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="news">
+        <div id="newsheading">
+            <h2>NEWS</h2>
+        </div>
+        <div id="news-data">
+            <div class="news_parts" id="news1">
+                <img src="{%static 'images_used/news1.webp'%}" alt="news1">
+                <h4>Our latest equipment</h4>
+                <div class="news-details">
+                    <a href="default"><span class="details_color">Date:</span>April 7, 2021</a>
+                    <a href="default"><span class="details_color">By:</span>Alex Grade</a>
+                    <a href="default">3 comments</a>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi hic sint vero? Minima iste vel atque, fuga placeat, numquam quae voluptatum vitae reiciendis aperiam fugiat.</p>
+            </div>
+            <div class="news_parts" id="news2">
+                <img src="{%static 'images_used/news2.webp'%}" alt="news2">
+                <h4>Which pills when to take</h4>
+                <div class="news-details">
+                    <a href="default"><span class="details_color">Date:</span>May 31, 2020</a>
+                    <a href="default"><span class="details_color">By:</span>Tanmay Bhatt</a>
+                    <a href="default">20 comments</a>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita delectus nulla adipisci dolorum reprehenderit mollitia pariatur, id molestiae illum porro corrupti atque ut? Molestiae, ab?</p>
+            </div>
+            <div class="news_parts" id="news3">
+                <img src="{%static 'images_used/news3.webp'%}" alt="news3">
+                <h4>Physiotherapy</h4>
+                <div class="news-details">
+                    <a href="default"><span class="details_color">Date:</span>Octorber 28, 2021</a>
+                    <a href="default"><span class="details_color">By:</span>Chat dog</a>
+                    <a href="default">50 comments</a>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores, numquam inventore alias sint, explicabo labore reiciendis dolorem exercitationem nostrum deserunt voluptas saepe nam unde minima?</p>
+            </div>
+        </div>
+    </div>
+        {%include 'footer.html'%}
+        {%block content3%}
+        {%endblock%}
+    <script src="{%static 'js/comments.js'%}" type="text/javascript">
+    </script>
+    </body>
+</html>

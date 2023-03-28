@@ -1,0 +1,199 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
+    <title>Login</title>
+
+    <!-- Local styling -->
+    <link rel="stylesheet" href="{%static 'css/login.css'%}">
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+
+    <!-- Font awesome -->
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #stafflogin{
+            color: #007bff !important;
+        }
+        #stafflogin_mob{
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="headblock_login">
+        {%include 'header.html'%}
+        {%block content1%}
+        {%endblock%}
+        <div id="login_mid_header">
+            <h2>Login</h2>
+            <a href="home">Home </a>/ <span> Login</span>
+        </div>
+    </div>
+    <div id="info_login">
+        <h2>How to login</h2>
+        <div id="doc-staff">
+            <div id="doc">
+                <p>For logging in as a Doctor user id: <span>demo@doctor.com</span>  and password as: <span>as:demodoc123</span>  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto harum nam natus consectetur! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor odit quos, tempora repellendus dolorem ut veniam voluptas corrupti.</p>
+                <button onclick="fill_doc()">Auto fill</button>
+            </div>
+            <div id="staff">
+                <p>For logging in as a Staff user id: <span>demo@staff.com </span> and password as:<span>demostaff123 </span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto harum nam natus consectetur! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam ex eius corrupti laborum pariatur dolore velit cum nemo eos consectetur?</p>
+                <button onclick="fill_staff()">Auto fill</button>
+            </div>
+        </div>    
+    </div>
+    <div id="error_message">
+        {%for message in messages%}
+        <h5>{{message}}</h5>
+        {%endfor%}
+    </div>
+    <div id="login_form">
+        <div id="login-doc">
+            <h2>Login as Doctor</h2>
+            <form action="logindoc" method="POST" enctype="multipart/form-data">
+                {%csrf_token%}
+                <input type="text" name="docid" id="docid" placeholder="Enter your ID" required><br>
+                <div class="pass"><input type="password" name="docpas" id="docpass" required placeholder="Enter your password"><i class="fas fa-eye" id="show_pass_doc" onclick="pass_show_doc()"></i><i id="hide_pass_doc" class="fas fa-eye-slash" onclick="pass_hide_doc()"></i></div><br>
+                <input type="submit" value="Login"><br>
+                <a href="javascript:void(0)" onclick="show_staff()">login as staff</a>
+                <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal1">Forgot password</a>
+            </form>
+            <div id="container">
+                <!-- <button id="modal_open_button" type="button" class="btn btn-info btn-lg" >Add comment</button> -->
+                 <!-- Modal -->
+                <div class="modal fade" id="myModal1" role="dialog">
+                    <div class="modal-dialog">
+                    
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Enter Your ID</h4>
+                        </div>
+                        <div class="modal-body">
+                        <form action="forgotpass_doc" method="POST" enctype="multipart/form-data">
+                            {%csrf_token%}
+                            <input type="email" name="emailforgot" id="forgot_passid" placeholder="Enter your id" required>
+                            <input type="submit" id="forgot_passbuton" value="Submit">
+                        </form>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="login-staff">
+            <h2>Login as Staff</h2>
+            <form action="loginstaff" method="POST" enctype="multipart/form-data">
+                {%csrf_token%}
+                <input type="text" name="staffid" id="staffid" placeholder="Enter your ID" required><br>
+                <div class="pass"><input type="password" name="staffpass" id="staffpass" placeholder="Enter your password" required><i class="fas fa-eye" id="show_pass_staff" onclick="pass_show_staff()"></i><i id="hide_pass_staff" class="fas fa-eye-slash" onclick="pass_hide_staff()"></i></div><br>
+                <input type="submit" value="Login"><br>
+                <a href="javascript:void(0)" onclick="show_doc()">login as Doctor</a>
+                <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal2">Forgot password</a>
+            </form>
+            <div id="container">
+                <!-- <button id="modal_open_button" type="button" class="btn btn-info btn-lg" >Add comment</button> -->
+                 <!-- Modal -->
+                <div class="modal fade" id="myModal2" role="dialog">
+                    <div class="modal-dialog">
+                    
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Enter Your ID</h4>
+                        </div>
+                        <div class="modal-body">
+                        <form action="forgotpass_staff" method="POST" enctype="multipart/form-data">
+                            {%csrf_token%}
+                            <input type="email" name="emailforgot" id="forgot_passid" placeholder="Enter your id" required>
+                            <input type="submit" id="forgot_passbuton" value="Submit">
+                        </form>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="tabs">
+        <div id="tab-links">
+            <a href="javascript:void(0)" id="link-tab-1" onclick="change_tab(1)" class="link-tab-class" autofocus>Tab 1</a>
+            <a href="javascript:void(0)" id="link-tab-2" onclick="change_tab(2)" class="link-tab-class">Tab 2</a>
+            <a href="javascript:void(0)" id="link-tab-3" onclick="change_tab(3)" class="link-tab-class">Tab 3</a>
+            <a href="javascript:void(0)" id="link-tab-4" onclick="change_tab(4)" class="link-tab-class">Tab 4</a>
+            <a href="javascript:void(0)" id="link-tab-5" onclick="change_tab(5)" class="link-tab-class">Tab 5</a>
+        </div>
+        <div id="tab-info">
+            <div id="tab-info-1" class="tab-info-class">
+                <img src="{%static 'images_used/image-tab-1.jpg'%}" alt="">
+                <div class="data-tab">
+                    <h4>Lorem ipsum dolor sit amet consectetur.</h4>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis esse pariatur delectus molestiae non itaque incidunt autem fugiat? Odio unde dolores magni ratione aspernatur quasi deserunt beatae, accusamus ullam itaque!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis esse pariatur delectus molestiae non itaque incidunt autem fugiat? Odio unde dolores magni ratione aspernatur quasi deserunt beatae, accusamus ullam itaque!</p>
+                </div>
+            </div>
+            <div id="tab-info-2" class="tab-info-class">
+                <img src="{%static 'images_used/image-tab-2.jpg'%}" alt="">
+                <div class="data-tab">
+                    <h4>Lorem ipsum dolor sit amet consectetur.</h4>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis esse pariatur delectus molestiae non itaque incidunt autem fugiat? Odio unde dolores magni ratione aspernatur quasi deserunt beatae, accusamus ullam itaque!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos aspernatur blanditiis suscipit consequuntur, placeat sapiente, delectus, maiores aliquid iusto harum eum molestias eveniet fugiat? Aperiam consectetur eligendi optio deleniti fugiat!</p>
+                </div>
+            </div>
+            <div id="tab-info-3" class="tab-info-class">
+                <img src="{%static 'images_used/image-tab-3.jpeg'%}" alt="">
+                <div class="data-tab">
+                    <h4>Lorem ipsum dolor sit amet consectetur.</h4>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis esse pariatur delectus molestiae non itaque incidunt autem fugiat? Odio unde dolores magni ratione aspernatur quasi deserunt beatae, accusamus ullam itaque!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo exercitationem iste iusto, eaque repudiandae labore unde necessitatibus, iure quos, laboriosam officiis. Accusantium quod molestiae natus sint consectetur expedita voluptatibus vitae.</p>
+                </div>
+            </div>
+            <div id="tab-info-4" class="tab-info-class">
+                <img src="{%static 'images_used/image-tab-4.jpeg'%}" alt="">
+                <div class="data-tab">
+                    <h4>Lorem ipsum dolor sit amet consectetur.</h4>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis esse pariatur delectus molestiae non itaque incidunt autem fugiat? Odio unde dolores magni ratione aspernatur quasi deserunt beatae, accusamus ullam itaque!Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, doloribus iure? Magni ducimus sint, excepturi enim laborum, voluptate dolore dolorem veniam modi iusto, ipsum odio suscipit assumenda hic cupiditate impedit?</p>
+                </div>
+            </div>
+            <div id="tab-info-5" class="tab-info-class">
+                <img src="{%static 'images_used/image-tab-5.jpg'%}" alt="">
+                <div class="data-tab">
+                    <h4>Lorem ipsum dolor sit amet consectetur.</h4>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis esse pariatur delectus molestiae non itaque incidunt autem fugiat? Odio unde dolores magni ratione aspernatur quasi deserunt beatae, accusamus ullam itaque!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum atque magni harum eaque eos, dignissimos, eligendi numquam, nobis veritatis nam minus sint distinctio quia laboriosam ad consequatur perferendis quos tenetur!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        {%include 'footer.html'%}
+        {%block content3%}
+        {%endblock%}
+    </div>
+    <script src="{%static 'js/login.js'%}">
+        
+    </script>
+</body>
+</html>

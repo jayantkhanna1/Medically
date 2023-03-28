@@ -1,0 +1,434 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
+    <title>Doctor</title>
+
+    <!-- Local styling -->
+    <link rel="stylesheet" href="{%static 'css/docpage.css'%}">
+    <link rel="stylesheet" href="{%static 'css/staffpage.css'%}">
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+
+    <!-- Font awesome -->
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #stafflogin{
+            color: #007bff !important;
+        }
+        #stafflogin_mob{
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id="headblock_docpage">
+        {%include 'header.html'%}
+        {%block content1%}
+        {%endblock%}
+        <div id="docpage_mid_header">
+            <h2>{{docdata.name}}</h2>
+            <a href="home">Home </a>/ <a href="javascript:void(0)">{{docdata.name}}</a> / <span><a href="logoutdoc">Logout</a> </span>
+        </div>
+    </div>
+    <div id="doctor-staff-toggle">
+        <a href="javascript:void(0)" onclick="show_patient()">Show Patients</a>
+        <a href="javascript:void(0)" onclick="show_staff()">Show Staff</a>
+    </div>
+    <!--Table heading etc for databse  -->
+    <div id="mid_data">
+        <div id="heading">
+            <h2>Appointments</h2>
+        </div>
+        <div id="searchbar">
+            <input type="text" id="input-searchbar" name="searchbar" placeholder="Enter name you want to search">
+        </div>
+        <div id="add_remove_edit">
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal_bookappointment">Add Appointment</a>
+            {%if docdata.can_delete is False%}
+            <a href="javascript:void(0)" onclick="alert('Sorry for security default users are not allowed to delete or edit database if you wanna explore these features please contact site administrators from contact us page. Thankyou')">Remove Appointment</a>
+            {%else%}
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal_removeappointment">Remove Appointment</a>
+            {%endif%}
+            
+        </div>
+        <!-- Add appointment modal -->
+        <div id="container">
+            <!-- <button id="modal_open_button" type="button" class="btn btn-info btn-lg" >Add comment</button> -->
+             <!-- Modal -->
+            <div class="modal fade" id="myModal_bookappointment" role="dialog">
+                <div class="modal-dialog">
+                
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add new Patient</h4>
+                    </div>
+                    <div class="modal-body">
+                    {% include 'appointment.html'%}
+                    {%block content2%}
+                    {%endblock%}
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+        <!-- Remove appointment modal -->
+        <div id="container">
+            <!-- <button id="modal_open_button" type="button" class="btn btn-info btn-lg" >Add comment</button> -->
+             <!-- Modal -->
+            <div class="modal fade" id="myModal_removeappointment" role="dialog">
+                <div class="modal-dialog">
+                
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Remove patient</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="input-searchbar-remove" name="searchbar" placeholder="Enter name you want to search">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-remove">
+                                {%for x in patientdata%}
+                                <tr>
+                                <td scope="row">{{x.id}}</td>
+                                <td>{{x.name}}</td>
+                                <td><a href="#" onclick="remove('{{x.id}}')" data-dismiss="modal">Remove</a></td>
+                                {%endfor%}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+        
+        <div class="table-responsive">
+            <table id="patient-list" class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Sex</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Date/Time</th>
+                    <th scope="col">Seen by doctor</th>
+                    <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    {%for x in patientdata%}
+                    <tr>
+                    <th scope="row" ><a target="_blank" href="{% url 'patientinfo' x.id docdata.id %}"style="color: black;">{{x.id}}</a></th>
+                    <td><a target="_blank" href="{% url 'patientinfo' x.id docdata.id %}" style="color: black;">{{x.name}}</a></td>
+                    <td><a target="_blank" href="{% url 'patientinfo' x.id docdata.id %}"style="color: black;">{{x.sex}}</a></td>
+                    <td><a target="_blank" href="{% url 'patientinfo' x.id docdata.id %}"style="color: black;">{{x.phone}}</a></td>
+                    <td><a  target="_blank"href="{% url 'patientinfo' x.id docdata.id %}"style="color: black;">{{x.date_time}}</a></td>
+                    <td><a target="_blank" href="{% url 'patientinfo' x.id docdata.id %}"style="color: black;">{{x.doc_seen}}</a></td>
+                    {%if docdata.can_delete is False%}
+                    <td><a href="javascript:void(0)" onclick="alert('Sorry for security default users are not allowed to delete or edit database if you wanna explore these features please contact site administrators from contact us page. Thankyou')"">Edit</a></td>
+                    {%else%}
+                    <td><a href="#" onclick="edit('{{x.id}}','{{x.name}}','{{x.sex}}','{{x.email}}','{{x.phone}}','{{x.department}}','{{x.doc_seen}}')" data-toggle="modal" data-target="#myModal_editappointment">Edit</a></td>
+                    {%endif%}
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+            <!-- Edit appointment modal -->
+        <div id="container">
+            <!-- <button id="modal_open_button" type="button" class="btn btn-info btn-lg" >Add comment</button> -->
+             <!-- Modal -->
+            <div class="modal fade" id="myModal_editappointment" role="dialog">
+                <div class="modal-dialog">
+                
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Details</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="editappointment_doc" method="POST" enctype="multipart/form-data">
+                        {%csrf_token%}
+                        <input type="text" name="patientid" id="appointment_id_edit" required name="id" readonly placeholder="Patient id">
+                        <select required name="sex" id="appointment_department_edit">
+                            <option value="">Select Sex</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Transgender">Transgender</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <select required name="department" id="appointment_doctor_edit">
+                            <option value="">Select Department</option>
+                            <option value="Cardiology">Cardiology</option>
+                            <option value="Ophthalmology">Ophthalmology</option>
+                            <option value="Surgery">Surgery</option>
+                            <option value="Otolaryngologist">Otolaryngologist</option>
+                            <option value="Neurology">Neurology</option>
+                            <option value="Hematologist">Hematologist</option>
+                            <option value="Medical Lab">Medical Lab</option>
+                            <option value="Dental Care">Dental Care</option>
+                            <option value="Pediatry">Pediatry</option>
+                
+                        </select><br>
+                        <input type="text" id="appointment_name_edit" required name="name" placeholder="Enter your Name">
+                        <input type="email" id="appointment_email_edit" required name="email" placeholder="Enter your Email">
+                        <input type="number" id="appointment_number_edit" required name="number" placeholder="Enter your contact number">
+                        <input type="text" id="appointment_ailment_edit" required name="ailment" placeholder="Enter patients Ailment (max 1000 words)">
+                        <input type="text" id="appointment_prescription_edit" required name="prescription" placeholder="Enter patients Prescription(max 1000 words)">
+                        <label id="docseen_label" for="docseen">Have you seen this patient</label>&nbsp;
+                        <input type="checkbox" name="docseen" id="docseen">
+                        <input type="submit" required value="Edit Appointment" id="book_appointment_submit_edit">
+                    
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div id="staff_mid_data">
+        <h2>Staff</h2>
+        <input placeholder="Search through staff" type="search" name="searchbar_staff" id="searchbar_staff">
+        <div id="add_remove">
+            <a href="#" data-toggle="modal" data-target="#myModal_addstaff">Add staff member</a>
+            {%if docdata.can_delete is False%}
+            <a href="javascript:void(0)" onclick="alert('Sorry for security default users are not allowed to delete or edit database if you wanna explore these features please contact site administrators from contact us page. Thankyou')">Remove Staff member</a>
+            {%else%}
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal_removestaff">Remove Staff member</a>
+            {%endif%}
+        </div>
+        <!-- Add Staff modal -->
+        <div id="container">
+            <!-- <button id="modal_open_button" type="button" class="btn btn-info btn-lg" >Add comment</button> -->
+             <!-- Modal -->
+            <div class="modal fade" id="myModal_addstaff" role="dialog">
+                <div class="modal-dialog">
+                
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add new Staff</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="addpatient" method="POST" enctype="multipart/form-data">
+                            {%csrf_token%}
+                            <input type="text" id="add_patient_name" name="name" placeholder="Enter member name" required>
+                            <input type="email" id="add_patient_email" name="email" placeholder="Enter member Email" required>
+                            <input type="number" id="add_patient_number" name="number" placeholder="Enter member Phonenumber" required>
+                            <input type="text" readonly id="add_patient_pass" name="password" value="default pass: staff123">
+                            <select required name="sex" id="add_patient_sex">
+                                <option value="">Select Sex</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Transgender">Transgender</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="submit" id="add_patient_submit" value="Add member">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+        <!-- Remove staff modal -->
+        <div id="container">
+            <!-- <button id="modal_open_button" type="button" class="btn btn-info btn-lg" >Add comment</button> -->
+             <!-- Modal -->
+            <div class="modal fade" id="myModal_removestaff" role="dialog">
+                <div class="modal-dialog">
+                
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Remove Staff</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="input-searchbar-remove-staff" name="searchbar" placeholder="Enter name you want to search">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-remove-staff">
+                                {%for x in staffdata%}
+                                <tr>
+                                <td scope="row">{{x.id}}</td>
+                                <td>{{x.name}}</td>
+                                <td><a href="#" onclick="remove_staff('{{x.id}}')" data-dismiss="modal">Remove</a></td>
+                                {%endfor%}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table id="patient-list" class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Sex</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body-staff">
+                    {%for x in staffdata%}
+                    <tr>
+                    <th scope="row" >{{x.id}}</th>
+                    <td>{{x.name}}</td>
+                    <td>{{x.sex}}</td>
+                    <td>{{x.phone}}</td>
+                    <td>{{x.email}}</td>
+                    {%if docdata.can_delete is False%}
+                    <td><a href="javascript:void(0)" onclick="alert('Sorry for security default users are not allowed to delete or edit database if you wanna explore these features please contact site administrators from contact us page. Thankyou')">Edit</a></td>
+                    {%else%}
+                    <td><a href="#" onclick="edit_staff('{{x.id}}','{{x.name}}','{{x.sex}}','{{x.email}}','{{x.phone}}')" data-toggle="modal" data-target="#myModal_editstaff">Edit</a></td>
+                    {%endif%}
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+        <!-- Edit staff modal -->
+        <div id="container">
+            <!-- <button id="modal_open_button" type="button" class="btn btn-info btn-lg" >Add comment</button> -->
+             <!-- Modal -->
+            <div class="modal fade" id="myModal_editstaff" role="dialog">
+                <div class="modal-dialog">
+                
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Details</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="edit_staff" method="POST" enctype="multipart/form-data">
+                        {%csrf_token%}
+                        <input type="text" name="staffid" id="edit_staff_id" readonly placeholder="Patient id">
+                        <input type="text" id="edit_staff_name" required name="name" placeholder="Enter your Name">
+                        <input type="email" id="edit_staff_email" required name="email" placeholder="Enter your Email">
+                        <input type="number" id="edit_staff_number" required name="number" placeholder="Enter your contact number">
+                        <select required name="sex" id="edit_staff_sex">
+                            <option value="">Select Sex</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Transgender">Transgender</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="submit" required value="Edit Staff" id="edit_staff_submit">
+                    
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div>
+        {%include 'footer.html'%}
+        {%block content3%}
+        {%endblock%}
+    </div>
+    <!-- Search function  -->
+    
+    <script src="{%static 'js/staffpage.js'%}"></script>
+    <script>
+        function remove(id)
+        {
+            $.ajax({
+                type: "POST",
+                url: 'remove',   
+                data: {csrfmiddlewaretoken: '{{ csrf_token }}',
+                    text: id},
+                success:  function(response){
+                    location.reload();}
+            });  
+        }
+        function remove_staff(id)
+        {
+            $.ajax({
+                type: "POST",
+                url: 'remove_staff',   
+                data: {csrfmiddlewaretoken: '{{ csrf_token }}',
+                    text: id},
+                success:  function(response){
+                    location.reload();}
+            });  
+        }
+        function patientinfo(id)
+        {
+            $.ajax({
+                type: "POST",
+                url: 'patientinfo',   
+                data: {csrfmiddlewaretoken: '{{ csrf_token }}',
+                    text: id},
+                success: function(data) {
+                    window.location=data
+                }
+            });  
+        }
+    </script>
+</body>
+</html>

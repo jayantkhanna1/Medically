@@ -1,0 +1,33 @@
+
+{%block content2%}
+<fieldset id="fieldset_3_index">
+    <legend>Make an appointment</legend>
+    <form action="bookappointment" method="POST" enctype="multipart/form-data">
+        {%csrf_token%}
+        <select required name="sex" id="appointment_department">
+            <option value="">Select Sex</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Transgender">Transgender</option>
+            <option value="Other">Other</option>
+        </select>
+        <select required name="department" id="appointment_doctor">
+            <option value="">Select Department</option>
+            <option value="Cardiology">Cardiology</option>
+            <option value="Ophthalmology">Ophthalmology</option>
+            <option value="Surgery">Surgery</option>
+            <option value="Otolaryngologist">Otolaryngologist</option>
+            <option value="Neurology">Neurology</option>
+            <option value="Hematologist">Hematologist</option>
+            <option value="Medical Lab">Medical Lab</option>
+            <option value="Dental Care">Dental Care</option>
+            <option value="Pediatry">Pediatry</option>
+
+        </select><br>
+        <input type="text" id="appointment_name" required name="name" placeholder="Enter your Name">
+        <input type="email" id="appointment_email" required name="email" placeholder="Enter your Email">
+        <input type="number" id="appointment_number" required name="number" placeholder="Enter your contact number"><br>
+        <input type="submit" required value="Book Appointment" id="book_appointment_submit">
+    </form>
+</fieldset>
+{%endblock%}

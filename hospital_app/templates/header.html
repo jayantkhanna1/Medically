@@ -1,0 +1,45 @@
+{%block content1%}
+<div id="header_for_comp">
+    <div id="header_right" >
+       <a href="home">MEDICALLY<span>+</span></a>
+    </div>
+    <div id="header_left">
+        <a id="home" href="home">Home</a>
+        <a id="aboutus" href="aboutus">About us</a>
+        <a id="services" href="default">Services</a>
+        <a id="news" href="default">News</a>
+        <a id="contactus" href="contactus">Contact us</a>
+        <a id="stafflogin" href="login">Staff login</a>
+    </div>
+</div>
+<div id="header_for_mobile">
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a id="home_mob" href="home">Home</a>
+        <a id="aboutus_mob" href="aboutus">About us</a>
+        <a id="services_mob" href="default">Services</a>
+        <a id="news_mob" href="default">News</a>
+        <a id="contactus_mob" href="contactus">Contact us</a>
+        <a id="stafflogin_mob" href="login">Staff login</a>
+      </div>
+      <div id="mobile_view_open_menu">
+        <div id="header_right" >
+            <a href="home">MEDICALLY<span>+</span></a>
+        </div>
+        <span id="mobile_sidenav_open" onclick="openNav()">&#9776;</span>
+       </div>
+      <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+          document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+          document.body.style.backgroundColor = "white";
+        }
+        </script>
+</div>
+{%endblock%}

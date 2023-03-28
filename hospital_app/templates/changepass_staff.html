@@ -1,0 +1,73 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title tag -->
+    <title>Change password</title>
+
+    <!-- Local styling -->
+    <link rel="stylesheet" href="{%static 'css/changepass_staff.css'%}">
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+
+    <!-- Font awesome -->
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+ 
+</head>
+<body>
+    <div id="headblock_changepass">
+        {%include 'header.html'%}
+        {%block content1%}
+        {%endblock%}
+        <div id="changepass_mid_header">
+            <h2>Forgot password</h2>
+            <a href="home">Home </a>/ <span> Forgot password</span>
+        </div>
+    </div>
+    <div id="warning">
+        Please do not refresh this page
+    </div>
+    <div id="wrong-otp">
+    </div>
+    <div id="otpconfirm">
+        <form action="javascript:void(0)" >
+            <input type="number" placeholder="Enter OTP" required name="otp" id="otp"><br>
+            <input type="submit" onclick="checkotp()" value="Proceed">
+        </form>
+    </div>
+    <div id="password_change">
+        <form onsubmit = "return pass_check(this);" action="changepass_staff" method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            <input type="email" id="mail" name="email" required value="{{staffdata.email}}" readonly><br>
+            <div id="showpass"><input name="password" placeholder="Enter new password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="pass" required type="password"><i class="fas fa-eye" id="show_pass" onclick="pass_show()"></i><i id="hide_pass" class="fas fa-eye-slash" onclick="pass_hide()"></i></div><br>
+            <input required placeholder="Confirm password" id="confirmpass" type="password">
+            <input type="submit" value="Change">
+        </form>
+    </div>
+    <div>
+        {%include 'footer.html'%}
+        {%block content3%}
+        {%endblock%}
+    </div>
+    <script src="{%static 'js/change_pass.js'%}" type="text/javascript"></script>
+    <script>
+        function checkotp(){
+           if( {{otp}} ==document.getElementById("otp").value){
+                document.getElementById("password_change").style.display="flex";
+                document.getElementById("otpconfirm").style.display="none";
+                document.getElementById("wrong-otp").style.display="none";
+           }
+           else{
+                document.getElementById("wrong-otp").style.display="flex";
+                document.getElementById("wrong-otp").innerHTML="Wrong OTP!!!";
+           }
+        }
+    </script>
+</body>
+</html>

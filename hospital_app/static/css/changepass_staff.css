@@ -1,0 +1,137 @@
+/*  styling for aboutus headblock i.e. adding background images etc */
+#headblock_changepass{
+    height: 450px;
+    background-repeat: no-repeat;
+    background-position:right;
+    background-size: contain;
+    padding-left: 80px;
+    padding-right: 80px;
+    background-image: url("../images_used/login.webp"); 
+    background-color: #f0f4f8; 
+}
+/* About us heading and path styling */
+#changepass_mid_header{
+    margin-top: 110px;
+    margin-left: 4%;
+}
+/* 'About us heading in background image styling' */
+#changepass_mid_header h2{
+    font-size: 60px;
+    font-weight: 500;
+    color: rgb(64 61 64);
+    font-family: 'Raleway', sans-serif;
+}
+/* Path back to home  */
+#changepass_mid_header a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(130 128 130);
+    font-family: 'Raleway', sans-serif;
+}
+/* Styling for 'About us in path' */
+#changepass_mid_header span{
+    color:rgb(24, 163, 235);
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+}
+#otpconfirm{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+#warning,#wrong-otp{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    color: rgb(24, 163, 235);
+    font-size: 30px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+}
+#otpconfirm input[type=number],#password_change input[type=password],#password_change input[type=text],#password_change input[type=email]{
+    outline: none;
+    border: transparent;
+    width: 100%;
+    height: 40px;
+    background-color: #f0f4f8;
+    color: #828282;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+#otpconfirm input[type=submit],#password_change input[type=submit]{
+    margin-left: 5%;
+    cursor: pointer;
+    border: none;
+    padding: 8px 10px 8px 10px;
+    border-radius: 25px;
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    outline: none;
+    color: white;
+    font-size: 25px;
+    line-height: 1.8em;
+    font-family: 'Raleway', 'sans-serif';
+    text-decoration: none;
+    background-color: rgb(43, 195, 255);
+    margin-bottom: 15px;
+}
+#password_change{
+    display: none;
+    margin-top: 50px;
+    justify-content: center;
+}
+#showpass{
+    position: relative;
+}
+#showpass svg{
+    color: black;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    cursor: pointer;
+}
+#hide_pass{
+    display: none;
+}
+@media screen and (max-width: 500px) {
+    /*  styling for login headblock i.e. adding background images etc */
+    #headblock_changepass{
+        height: 300px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position:left;
+        background-size: cover;
+        margin-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /*Login heading and path styling */
+    #changepass_mid_header{
+        margin-top: 45px;
+        margin-left: 5%;
+    }
+    /* 'login heading in background image styling' */
+    #changepass_mid_header h2{
+        font-size: 45px;
+    }
+    #warning,#wrong-otp{
+        font-size: 24px;
+    }
+    #otpconfirm input[type=number],#password_change input[type=password],#password_change input[type=text],#password_change input[type=email]{
+        width: 90%;
+        margin-left: 2%;
+    }
+    #showpass svg{
+        color: black;
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        cursor: pointer;
+    }
+}
